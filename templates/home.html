@@ -1,10 +1,109 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="home">
-    <h1>My homepage</h1>
-    <p>This is a test website</p>
-    <p>This is reuvfsaenz change - ff</p>
-    <p>one more new line to test git</p>
-    <p>one more line to test reaction time</p>
+    
+      <div class="container">
+    
+        <div id="totoogle1" > <p class ="sn"> Reuven's Website! </p> </div>
+        <div id="error"><?php echo $error; ?></div>
+    
+        <form method="post" id="login">
+    
+          <div class="form-group row">
+    
+    
+              <label id="sl" for="pwd">username::</label>
+              <input type="text" class="form-control" name="username" placeholder="username">
+    
+          </div>
+    
+          <div class="form-group row">
+    
+              <label id="sl" for="pwd">Password:</label>
+              <input type="password" class="form-control" name="password" placeholder="password">
+              <a href="forgetpass.php">Forgot my password</a>
+    
+          </div>
+          <div class="form-group form-check">
+    
+            <input type="checkbox" class="form-check-input" name="stayLoggedIn" value='0'>
+            <label id ="sl" class="form-check-label" for="exampleCheck1">Stay logged in</label>
+    
+          </div>
+          <div>
+    
+            <input type="hidden" name="signup" value="0">
+    
+          </div>
+          <div>
+    
+            <input type="submit" class="btn btn-primary" name="submit" id="submit" value="Log in">
+    
+          </div>
+    
+    
+        </form>
+        
+    
+        <br>
+    
+        <p> <a id="show_log_in_form" class="myButton"> Log in </a> </p>
+        <p> <a id="show_SignUp_form" class="myButton"> SignUp </a> </p>
+    
+        <br>
+    
+        <div id="totoogle2" > <p class ="sn"> or sign up! <p> </div>
+    
+        <br>
+    
+        <form method="post" id="signup">
+    
+          <div class="form-group row">
+    
+    
+              <label id="sl" for="pwd">username::</label>
+              <input type="text" class="form-control" name="username" placeholder="username">
+    
+    
+          </div>
+          <div class="form-group row">
+    
+              <label id="sl" for="pwd">Password:</label>
+              <input type="password" class="form-control" name="password" placeholder="password">
+    
+    
+          </div>
+          <div class="form-group row">
+    
+    
+              <label id="sl" for="email">Email address:</label>
+              <input type="email" class="form-control" name="email" placeholder="email">
+    
+          </div>
+    
+          <div>
+    
+    
+            <input type="hidden" name="signup" value="1">
+    
+          </div>
+          <div>
+    
+            <input type="submit" class="btn btn-primary" name="submit" id="submit" value="Sign up">
+    
+    
+          </div>
+    
+        </form>
+    
+    
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+      </div>
 </div>
+
 {% endblock %}

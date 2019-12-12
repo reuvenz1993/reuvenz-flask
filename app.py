@@ -4,6 +4,7 @@ import MySQLdb
 from flask_mysqldb import MySQL
 
 app=Flask(__name__)
+app.config['TESTING'] = True
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'

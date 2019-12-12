@@ -11,34 +11,19 @@ app.config['TESTING'] = True
 
 
 
-from flaskext.mysql import MySQL
-import mysql.connector
-import sshtunnel
+connection = pymysql.connect(host='http://ec2-46-137-91-216.eu-west-1.compute.amazonaws.com/',
+                             port=5432,
+                             user='afstpratzpjdte',
+                             password='8fc13500ad53ae2dc352fc5adf02911a3c40b53aef1ebb02d05c39c7628b870a',
+                             db='d62fast5jf6n7u',
+                             charset='utf8mb4',
+                             cursorclass=pymysql.cursors.DictCursor)
+ 
+print(connection)
 
-sshtunnel.SSH_TIMEOUT = 5.0
-sshtunnel.TUNNEL_TIMEOUT = 5.0
 
-with sshtunnel.SSHTunnelForwarder(
-    ('shareddb-p.hosting.stackcp.net'),
-    ssh_username='engramar', ssh_password='usersdb-3131357d30',
-    remote_bind_address=('shareddb-p.hosting.stackcp.net', 3306)
-) as tunnel:
-    connection = mysql.connector.connect(
-        user='usersdb-3131357d30', password='usersdb-3131357d30',
-        host='127.0.0.1', port=tunnel.local_bind_port,
-        database='usersdb-3131357d30',
-    )
-
-print('after SSH connection')
 
 mysql = MySQL()
-
-# MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'engramar'
-app.config['MYSQL_DATABASE_PASSWORD'] = '<password>'
-app.config['MYSQL_DATABASE_DB'] = 'engramar$default'
-app.config['MYSQL_DATABASE_HOST'] = 'engramar.mysql.pythonanywhere-services.com'
-mysql.init_app(app)
 
 print('after app.config')
 

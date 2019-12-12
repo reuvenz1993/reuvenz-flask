@@ -2,6 +2,7 @@ from flask import Flask, render_template , request
 from flaskext.mysql import MySQL
 import MySQLdb
 from flask_mysqldb import MySQL
+import pymysql
 
 app=Flask(__name__)
 app.config['TESTING'] = True

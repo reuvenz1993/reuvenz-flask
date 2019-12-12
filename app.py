@@ -1,7 +1,18 @@
 from flask import Flask, render_template , request
 from flaskext.mysql import MySQL
+import MySQLdb
+from flask_mysqldb import MySQL
 
 app=Flask(__name__)
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'todo'
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+# init MYSQL
+mysql = MySQL(app)
 
 @app.route('/' , methods =['GET','POST'])
 def home():

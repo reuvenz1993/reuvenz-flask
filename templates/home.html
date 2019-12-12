@@ -1,5 +1,80 @@
 <!--{% extends "layout.html" %}
 {% block content %} -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Flask App</title>
+      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+      <title>Reuven's Website!</title>
+    
+    <style type="text/css">
+      .container {
+        text-align: center;
+        width: 400px;
+        margin-top: 50px;
+      }
+    
+      html { 
+      background-image: url("https://github.com/reuvenz1993/reuvenz-flask/blob/646f8c400300979a8826d70ca4d2ac3079164f34/static/img/home.jpg") no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    
+    body {
+      background: none;
+    }
+    
+    #login {
+      display: none;
+    }
+    
+    .myButton {
+        background-color:#44c767;
+        border-radius:28px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:17px;
+        padding:16px 31px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;
+    }
+    .myButton:hover {
+        background-color:#5cbf2a;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+    
+    .sn {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #E3FFEB;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    }
+    
+    #sl { color: white;}
+    
+    #show_SignUp_form { display: none;}
+    
+    </style>
+  </head>
+  <body>
+    <div class="container">
 <div class="home">
     
       <div class="container">
@@ -106,6 +181,9 @@
       </div>
 </div>
 
-<img src="https://github.com/reuvenz1993/reuvenz-flask/blob/646f8c400300979a8826d70ca4d2ac3079164f34/static/img/home.jpg" >
+    </div>
+  </body>
+</html>
+
 
 <!--{% endblock %}  -->

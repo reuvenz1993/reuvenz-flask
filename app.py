@@ -26,7 +26,7 @@ def home():
         password = request.form['password']
         print ("username is :" + username)
         print ("password is :" + password)
-        cursor.execute("SELECT `username` ,`password` FROM `users` WHERE `username`=" + username + " " )
+        cursor.execute("SELECT `username` ,`password` FROM `users` WHERE `username`=" +"'" + username +"'")
         res = json.dumps( cursor.fetchall() )
         return render_template("home.html" , res = res)
     return render_template("home.html" )

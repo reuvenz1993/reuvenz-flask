@@ -19,6 +19,7 @@ cursor=myDB.cursor()
 
 app=Flask(__name__)
 app.config['TESTING'] = True
+app.secret_key = "fghfghfdgsdfhfhfghdfgrebdfbver"
 
 login_manager = LoginManager()
 

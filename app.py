@@ -1,4 +1,4 @@
-from flask import Flask, render_template , request , session , redirect , url_for
+from flask import Flask, render_template , request , session , redirect , url_for , escape , make_response
 from flaskext.mysql import MySQL
 import MySQLdb
 from flask_mysqldb import MySQL
@@ -26,7 +26,7 @@ login_manager = LoginManager()
 
 
 @app.route('/' , methods =['GET','POST'])
-def home():
+def index():
     if 'username' in session:
         username = session['username']
         return redirect(url_for('main'))
@@ -41,11 +41,11 @@ def home():
             session['username'] = username
             return redirect(url_for('main'))
         elif ( res ) :
-            return render_template("home.html" , res = res , status = "username correct but password isnt")
+            return render_template("index.html" , res = res , status = "username correct but password isnt")
         else :
-            return render_template("home.html" , res = res , status = "no such username")
+            return render_template("index.html" , res = res , status = "no such username")
 
-    return render_template("home.html" )
+    return render_template("index.html" )
 
 @app.route('/about/')
 def about():
@@ -53,13 +53,18 @@ def about():
 
 @app.route('/main/')
 def main():
-    return render_template("main.html")
+    if 'username' in session:
+        user = session['username']
+        print ( user )
+        return render_template("main.html")
+    else:
+        return redirect(url_for('index'))
 
 @app.route('/logout')
 def logout():
    # remove the username from the session if it is there
    session.pop('username', None)
-   return redirect(url_for('home'))
+   return redirect(url_for('index'))
 
 if __name__=="__main__":
     app.run(debug=True)

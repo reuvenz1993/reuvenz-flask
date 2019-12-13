@@ -2,15 +2,6 @@
     "python.pythonPath": "C:\\Users\\user\\Anaconda3\\python.exe",
     "sqltools.connections": [
         {
-            "database": "usersdb-3131357d30",
-            "dialect": "MySQL",
-            "name": "Sql-server",
-            "password": "usersdb-3131357d30",
-            "port": 3306,
-            "server": "shareddb-p.hosting.stackcp.net",
-            "username": "usersdb-3131357d30"
-        },
-        {
             "connectionTimeout": 600,
             "database": "d62fast5jf6n7u",
             "dialect": "PostgreSQL",
@@ -21,6 +12,17 @@
             "port": 5432,
             "server": "ec2-46-137-91-216.eu-west-1.compute.amazonaws.com",
             "username": "afstpratzpjdte"
+        },
+        {
+            "database": "usersdb-3131357d30",
+            "dialect": "MySQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "Sql-server",
+            "password": "usersdb-3131357d30",
+            "port": 53856,
+            "server": "mysql.stackcp.com",
+            "username": "usersdb-3131357d30"
         }
     ]
 }

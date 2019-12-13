@@ -6,6 +6,18 @@ import pymysql
 import mysql.connector
 import pymysql.cursors
 import MySQLdb
+import pymssql
+
+server = "http://ec2-46-137-91-216.eu-west-1.compute.amazonaws.com"
+user = "afstpratzpjdte"
+password = "8fc13500ad53ae2dc352fc5adf02911a3c40b53aef1ebb02d05c39c7628b870a"
+database = "d62fast5jf6n7u"
+
+
+
+conn = pymssql.connect(server=server, user=user, password=password, database=db)
+cursor = conn.cursor()
+
 
 app=Flask(__name__)
 app.config['TESTING'] = True

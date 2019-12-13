@@ -10,18 +10,10 @@ from MySQLdb import _mysql
 import json
 
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
-
-#myDB.query("""SELECT * FROM users """)
-
 cursor=myDB.cursor()
-cursor.execute("SELECT * FROM `users`")
-res = json.dumps( cursor.fetchall())
 
+#cursor.execute("SELECT * FROM `users`")
 
-#db=_mysql.connect(host="outhouse",port=5432,passwd="8fc13500ad53ae2dc352fc5adf02911a3c40b53aef1ebb02d05c39c7628b870a",db="d62fast5jf6n7u")
-
-#db=_mysql.connect(host="shareddb-p.hosting.stackcp.net:3306",user="usersdb-3131357d30",
-#                  passwd="usersdb-3131357d30",db="usersdb-3131357d30")
 
 app=Flask(__name__)
 app.config['TESTING'] = True
@@ -34,7 +26,10 @@ def home():
         password = request.form['password']
         print ("username is :" + username)
         print ("password is :" + password)
-    return render_template("home.html" , res = res)
+        cursor.execute("SELECT `username` ,`password` FROM `users` WHERE `username`=" + username + " " )
+        res = json.dumps( cursor.fetchall() )
+        return render_template("home.html" , res = res)
+    return render_template("home.html" )
 
 @app.route('/about/')
 def about():

@@ -1,4 +1,4 @@
-from flask import Flask, render_template , request 
+from flask import Flask, render_template , request , session
 from flaskext.mysql import MySQL
 import MySQLdb
 from flask_mysqldb import MySQL
@@ -8,6 +8,8 @@ import pymysql.cursors
 import MySQLdb
 from MySQLdb import _mysql
 import json
+from twisted.web.server import Session
+from flask_login import LoginManager
 
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
 cursor=myDB.cursor()
@@ -18,9 +20,14 @@ cursor=myDB.cursor()
 app=Flask(__name__)
 app.config['TESTING'] = True
 
+login_manager = LoginManager()
+
+
 
 @app.route('/' , methods =['GET','POST'])
 def home():
+    if ( session['username'] != "" ) :
+        return render_template("main.html")
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']

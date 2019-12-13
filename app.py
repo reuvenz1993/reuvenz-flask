@@ -27,8 +27,15 @@ def home():
         print ("username is :" + username)
         print ("password is :" + password)
         cursor.execute("SELECT `username` ,`password` FROM `users` WHERE `username`=" +"'" + username +"'")
-        res = json.dumps( cursor.fetchall() )
-        return render_template("home.html" , res = res)
+        res = cursor.fetchone()
+        if ( res and res[1] == password ):
+            return render_template("home.html" , res = res , status = "connaction scss")
+        elif ( res ) :
+            return render_template("home.html" , res = res , status = "username correct but password isnt")
+        else :
+            return render_template("home.html" , res = res , status = "no such username")
+
+        
     return render_template("home.html" )
 
 @app.route('/about/')

@@ -10,10 +10,10 @@ from MySQLdb import _mysql
 
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30")
 
-myDB.query("""SELECT * FROM users """)
+#myDB.query("""SELECT * FROM users """)
 
 cursor=myDB.cursor()
-cursor.execute("""SELECT * from users """)
+cursor.execute("SELECT * from users ")
 
 
 #db=_mysql.connect(host="outhouse",port=5432,passwd="8fc13500ad53ae2dc352fc5adf02911a3c40b53aef1ebb02d05c39c7628b870a",db="d62fast5jf6n7u")

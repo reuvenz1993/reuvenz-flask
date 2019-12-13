@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4"><?php echo "Welcome ".$username['username']." !" ?> </h1>
+    <p class="lead">This is the main page of the website - see and choose your application.</p>
+    <hr class="my-4">
+    <p>provided by @Reuven_zolo.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+  
+  <div id ="apps" class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Secret Diary</h2>
+        <p>This is app number 1 - your secret diary <br> use it for secret personal notes</p>
+        <a name="diary" id="diary" class="btn btn-primary" href="secret_diary_app\secret diary.php" role="button">Go to app</a>
+      </div>
+      <div class="col-md-3">
+        <h2>App - notes</h2>
+        <p>App number 2 - notes <br> Lorem ipsum dolor sit amet, consectetur adipiscing elit sed.</p>
+        <a name="diary" id="diary" class="btn btn-primary" href="notes\notes.php" role="button">Go to app</a>
+      </div>
+      <div class="col-md-3">
+        <h2>App - TBD</h2>
+        <p>This is app number 3 - TBD <br> Lorem ipsum dolor sit amet, consectetur.</p>
+        <a name="diary" id="diary" class="btn btn-primary" href="facebook\facebook_main.php" role="button">Go to app</a>
+      </div>
+    
+    </div>
+  </div>
+  
+  
+  
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+     
+
+  
+  {% endblock %}

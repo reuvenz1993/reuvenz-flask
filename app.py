@@ -48,15 +48,26 @@ def index():
             return render_template("index.html" , res = res , status = "no such username")
 
     if ( request.method == 'POST' and request.form['signup'] == '1' ):
+        cont = True
+        error =""
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
         cursor.execute ("SELECT COUNT(*) FROM `users` WHERE `username`=" +"'" + username +"'")
-        temp_user_res = cursor.fetchone()[0]
-        print (temp_user_res )
+        username_check = cursor.fetchone()[0]
+        if username_check > 0 :
+            cont = False
+            error += "Username is not free, try an other user name <br>"
+        print (username_check )
+        
         cursor.execute ("SELECT COUNT(*) FROM `users` WHERE `email`=" +"'" + email +"'")
-        temp_email_res = cursor.fetchone()[0]
-        print (temp_email_res )
+        email_check = cursor.fetchone()[0]
+        if  email_check > 0 :
+            cont = False
+            error += "Email is not free, try an other user name <br>"
+        print (email_check )
+        if ( cont ):
+            print ("can insert")
         
         
 

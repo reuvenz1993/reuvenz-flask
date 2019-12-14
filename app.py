@@ -30,7 +30,9 @@ def index():
     if 'username' in session:
         username = session['username']
         return redirect(url_for('main'))
-    if request.method == 'POST':
+
+    if ( request.method == 'POST' and 'signup' in session ):
+        print (session['signup'])
         username = request.form['username']
         password = request.form['password']
         print ("username is :" + username)

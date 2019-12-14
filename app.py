@@ -31,8 +31,8 @@ def index():
         username = session['username']
         return redirect(url_for('main'))
 
-    if ( request.method == 'POST' and 'signup' in session ):
-        print (session['signup'])
+    if ( request.method == 'POST' and request.form['signup'] == '0' ):
+        print (request.form['signup'])
         username = request.form['username']
         password = request.form['password']
         print ("username is :" + username)
@@ -46,6 +46,19 @@ def index():
             return render_template("index.html" , res = res , status = "username correct but password isnt")
         else :
             return render_template("index.html" , res = res , status = "no such username")
+
+    if ( request.method == 'POST' and request.form['signup'] == '1' ):
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
+        cursor.execute ("SELECT COUNT(*) FROM `users` WHERE `username`=" +"'" + username +"'")
+        temp_user_res = cursor.fetchone()[0]
+        print (temp_user_res )
+        cursor.execute ("SELECT COUNT(*) FROM `users` WHERE `email`=" +"'" + email +"'")
+        temp_email_res = cursor.fetchone()[0]
+        print (temp_email_res )
+        
+        
 
     return render_template("index.html" )
 

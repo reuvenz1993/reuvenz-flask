@@ -96,7 +96,7 @@ def whatsapp():
     if 'username' in session:
         username = session['username']
         print ( username )
-        return render_template("whatsapp.html" , username = username)
+        return render_template("whatsapp.html" , username = (username) )
     else:
         return redirect(url_for('index'))
     

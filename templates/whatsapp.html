@@ -23,12 +23,6 @@
 
 
 <div class="container">
-    
-
-        
-
-
-
 
     <div class="row">
 
@@ -130,8 +124,32 @@
 
 </div>
 
-<script>
-    var username = "{{username}}"";
+
+<script type="text/javascript">
+
+    var arr = [];
+
+    var user2 = "reuven";
+    var userlist_Array = [] ;
+    var user1 =  username ;
+
+$(document).ready(function () {
+
+
+    var user1 = logged_in_username;
+    //console.log("this is on main code console log :");
+    $.post('facebook_userlist_new.php',
+    {user1: user1},
+    function( data , status)
+    {
+    //console.log("ajax scss :");
+    userlist_Array=$.parseJSON(data);
+    //console.log(userlist_Array) ;
+    update_user_show(userlist_Array);
+    }  );
+
+});
+
 </script>
 
 {% endblock %}

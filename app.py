@@ -67,6 +67,10 @@ def index():
             error += "Email is not free, try an other user name <br>"
         print (email_check )
         if ( cont ):
+            sql = "INSERT INTO `users` ( `username` ,`password` , `email`) VALUES (%s, %s, %s)"
+            val = ( username , password ,  email )
+            cursor.execute(sql, val)
+            myDB.commit()
             print ("can insert")
         
         
@@ -80,11 +84,22 @@ def about():
 @app.route('/main/')
 def main():
     if 'username' in session:
-        user = session['username']
-        print ( user )
-        return render_template("main.html")
+        username = session['username']
+        print ( username )
+        return render_template("main.html" , username = username)
     else:
         return redirect(url_for('index'))
+
+
+@app.route('/whatsapp/')
+def whatsapp():
+    if 'username' in session:
+        username = session['username']
+        print ( username )
+        return render_template("whatsapp.html" , username = username)
+    else:
+        return redirect(url_for('index'))
+    
 
 @app.route('/logout')
 def logout():

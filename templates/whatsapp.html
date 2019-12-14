@@ -1,0 +1,130 @@
+
+
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/leftside_style.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/rightside_style.css')}}">
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+
+<form id="myform" action="" method="POST" >
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="me" >
+    <label class="form-check-label" for="exampleRadios1">  Only me </label>
+</div>
+
+
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="all" checked>
+    <label class="form-check-label" for="exampleRadios2"> Everybody </label>
+ </div>
+</form>
+
+
+<div class="container">
+    
+
+        
+
+
+
+
+    <div class="row">
+
+        <div id="leftside" class="col-md-3">
+
+            <div class="inbox_people">
+                
+                <div class="headind_srch">
+
+                    <div class="recent_heading">
+                        <h4>Recent</h4>
+
+
+                    </div>
+
+                    <div class="srch_bar">
+
+                        <div class="stylish-input-group">
+                            <input type="text" class="search-bar"  placeholder="Search" >
+                            <span class="input-group-addon">
+                            <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                            </span> 
+                         </div>
+
+                    </div>
+                
+
+
+
+                </div>
+
+                <div id="inbox_chat" class="inbox_chat">
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+           
+
+
+
+        </div>
+
+        <div id="rightside" class="col-md-9">
+            <div class="mesgs">
+                  <div id="msg_history" class="msg_history">
+               
+                  </div>
+            
+
+            </div>
+
+
+
+            <div class="row justify-content-md-center">
+        
+        <div class="col-md-9">
+    
+            <div id="add-post" >
+                
+    
+                    <form  id="write_new_msg" method="post">
+    
+                    <div class="form-group">
+                    <label class= for="">write a new massage</label>
+                    <textarea id="the_added_msg" class="form-control" name="newtext2" id="newtext2" rows="3"></textarea>
+                    </div>
+    
+                    <input id="rec" type="hidden" name="rec" value="reuven">
+    
+                    <button id="submit-new-post" name="submit-new-post" type="submit" class="btn btn-primary">Submit</button>
+    
+                    </form>
+                </div>
+    
+            </div>
+    
+        </div> 
+            
+        </div>
+
+
+
+
+
+
+    </div>
+        
+
+
+</div>
+
+
+</div>

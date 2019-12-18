@@ -112,9 +112,10 @@ def logout():
    session.pop('username', None)
    return redirect(url_for('index'))
 
-@app.route('/ajax-test')
-def ajax_test():
-   return render_template(ajax_test.html)
+
+#@app.route('/ajax-test')
+#def ajax_test():
+#   return render_template(ajax_test.html)
 
 
 if __name__=="__main__":

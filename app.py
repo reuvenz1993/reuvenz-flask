@@ -121,9 +121,11 @@ def ajax_test_func():
     data = request.form['data']
     return json.dumps ({'data': data})
 
-@app.route('/ajax_test')
-def ajax_test():
-   return render_template("ajax_test.html")
+@app.route('/userlist')
+def userlist():
+    cursor.execute("SELECT DISTINCT `username` FROM `users`")
+    userlist = cursor.fetchone()
+    return json.dumps ({'userlist': userlist})
 
 if __name__=="__main__":
     app.run(debug=True)

@@ -124,6 +124,11 @@
 
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 
 <script type="text/javascript">
 
@@ -135,15 +140,14 @@
 
 $(document).ready(function () {
 
-    var user1 = logged_in_username;
     //console.log("this is on main code console log :");
-    $.post('facebook_userlist_new.php',
+    $.post('/userlist',
     {user1: user1},
     function( data , status)
     {
-    //console.log("ajax scss :");
-    userlist_Array=$.parseJSON(data);
-    //console.log(userlist_Array) ;
+    console.log("ajax scss :");
+    //userlist_Array=$.parseJSON(data);
+    console.log(data) ;
     update_user_show(userlist_Array);
     }  );
 

@@ -77,8 +77,7 @@ def index():
             cursor.execute(sql, val)
             myDB.commit()
             print ("can insert")
-        
-        
+
 
     return render_template("index.html" )
 
@@ -125,4 +124,4 @@ def ajax_test_func():
 
 if __name__=="__main__":
     app.run(debug=True)
-    
+

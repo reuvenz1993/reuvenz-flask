@@ -113,9 +113,14 @@ def logout():
    return redirect(url_for('index'))
 
 
-#@app.route('/ajax-test')
-#def ajax_test():
-#   return render_template(ajax_test.html)
+@app.route('/ajax_test')
+def ajax_test():
+   return render_template("ajax_test.html")
+
+@app.route('/ajax_test_func' , methods =['GET','POST'])
+def ajax_test_func():
+    data = request.form['data']
+    return json.dumps ({'data': data})
 
 
 if __name__=="__main__":

@@ -12,6 +12,8 @@ from twisted.web.server import Session
 from flask_login import LoginManager
 from sqlalchemy.dialects.mysql import mysqlconnector
 import sqlalchemy
+import numpy as np
+
 
 engine = sqlalchemy.create_engine("mysql+mysqlconnector://usersdb-3131357d30:usersdb-3131357d30@mysql.stackcp.com:53856/usersdb-3131357d30")
 
@@ -121,11 +123,18 @@ def ajax_test_func():
     data = request.form['data']
     return json.dumps ({'data': data})
 
-@app.route('/userlist')
+@app.route('/userlist'  , methods =['GET','POST'])
 def userlist():
     cursor.execute("SELECT DISTINCT `username` FROM `users`")
-    userlist = cursor.fetchone()
-    return json.dumps ({'userlist': userlist})
+    userlist_res = cursor.fetchall()
+    userlist = []
+    for user in userlist_res :
+        userlist.append(user[0])
+    for user in userlist:
+        cursor.execute("SELECT * FROM `massages` WHERE ( sender='$user1' AND receiver='$user2' ) OR ( sender='$user2' AND  receiver='$user1'  ) ORDER BY `time` DESC LIMIT 1") ;
+        r = cursor.fetchone()
+        userlist[user].append(r)
+    return json.dumps ( userlist )
 
 if __name__=="__main__":
     app.run(debug=True)

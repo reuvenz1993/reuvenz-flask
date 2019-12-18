@@ -146,12 +146,74 @@ $(document).ready(function () {
     function( data , status)
     {
     console.log("ajax scss :");
-    //userlist_Array=$.parseJSON(data);
+    userlist_Array=$.parseJSON(data);
     console.log(data) ;
     update_user_show(userlist_Array);
     }  );
 
 });
+
+
+function update_user_show (userlist_Array)
+    {
+        for (i = 0; i <  userlist_Array.length; i++) 
+            {
+                
+                var friend_username = userlist_Array [i];
+                
+
+                var user_tab = document.createElement('div');
+                var user_teb_header = document.createElement('div');
+                var user_teb_header_display = document.createElement('div');
+                var user_tab_msg_display = document.createElement('div');
+
+                user_tab.id = friend_username + "_user_tab";
+                user_tab.className ="chat_list active_chat hand pointer"
+
+                user_teb_header.id = friend_username + " user_teb_header-id";
+                user_teb_header.className = "chat_people hand pointer";
+                user_teb_header.innerHTML = "<p id =date_"+friend_username+"></p>";
+                if (userlist_Array[i].length > 1)
+                {
+                    user_teb_header.innerHTML = userlist_Array[i][4] ;
+                };
+
+                user_teb_header_display.className = "chat_ib name hand pointer"
+                user_teb_header_display.innerHTML = friend_username;
+                user_teb_header_display.id = i + "chat_ib name ";
+
+                user_tab_msg_display.className = "chat_ib lastmsg hand pointer";
+                user_tab_msg_display.innerHTML = "";
+                if (userlist_Array[i].length > 1)
+                {
+                    user_tab_msg_display.innerHTML = userlist_Array[i][3] ;
+                };
+                user_tab_msg_display.id = friend_username + "_chat_ib_lastmsg";
+
+                user_teb_header_display.addEventListener("click", function(event)
+                {
+                start_chat_with_user( event ) ;
+                });
+
+
+                user_teb_header.appendChild(user_teb_header_display);
+                user_teb_header.appendChild(user_tab_msg_display);
+                user_tab.appendChild(user_teb_header);
+
+                $("#inbox_chat").append(user_tab);
+
+                //setTimeout( get_last_message(friend_username) , 1000 );
+
+
+                
+
+
+
+            }  ;
+
+
+    };
+
 
 </script>
 

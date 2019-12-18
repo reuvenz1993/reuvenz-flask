@@ -121,6 +121,9 @@ def ajax_test_func():
     data = request.form['data']
     return json.dumps ({'data': data})
 
+@app.route('/ajax_test')
+def ajax_test():
+   return render_template("ajax_test.html")
 
 if __name__=="__main__":
     app.run(debug=True)

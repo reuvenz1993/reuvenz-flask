@@ -23,10 +23,20 @@ temp = list(temp)
 
 SYMBOLS = '{}()[].,:;+-*/&|<>=~'
 
-num_rows = len(temp) -1
+num_rows = len(temp)
 print (temp[5])
 
+n = num_rows
+m = 3
+a = [[0] * m for i in range(n)]
+print (a)
+
+for i in range (num_rows):
+    a[i][0] = str(temp[i])
+    a[i][0] = a[i][0][2:-3]
+    
 
 
 print (temp)
 print (num_rows)
+print (a)

@@ -17,8 +17,11 @@ import numpy as np
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
 cursor=myDB.cursor()
 
-cursor.execute("SELECT *  FROM `users`")
-num_of_users = cursor.fetchone()
+userlist_arr = []
+cursor.execute("SELECT username FROM `users`")
+num_of_users = cursor.rowcount
+userlist = cursor.fetchall()
+userlist = list(userlist)
 
-a = num_of_users.num_rows()
-print(a)
+print(num_of_users)
+print(userlist)

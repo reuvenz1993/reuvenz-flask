@@ -215,6 +215,35 @@ function update_user_show (userlist_Array)
     };
 
 
+    function start_chat_with_user(userid) 
+    {
+    //console.log(userid.target.innerHTM);
+    user2 = userid.target.innerHTML;
+    console.log(user2);
+    var ff = "g";
+    $('#rec').val(user2);
+    user1 = username ;
+    load_messages( user1 ,user2 );
+    };
+
+
+    function load_messages( user1 , user2)
+    {
+    $.post('/open_chat',
+            {'user2': user2 ,
+            'user1' : user1 }, 
+            function( data , status) {
+            message_original = data;
+            message_Array=$.parseJSON(data);
+            console.log(message_Array);
+            show_messages(message_Array , user1 , user2 );
+
+            
+
+            });
+
+    };
+
 </script>
 
 {% endblock %}

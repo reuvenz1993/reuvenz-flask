@@ -16,15 +16,11 @@ import numpy as np
 
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
 cursor=myDB.cursor()
-
 logged_in = 'reuven'
-
 cursor.execute("SELECT DISTINCT username FROM `users`")
 temp = cursor.fetchall()
-
 n = len(temp)
-a = [[0] * 3 for i in range(n)]
-print (a)
+a = [[0] * 4 for i in range(n)]
 
 for i in range (n):
     username = str(temp[i])
@@ -34,8 +30,9 @@ for i in range (n):
     r = cursor.fetchone()
     if (r):
         a[i][1] = r[1]
-        a[i][2] = str(r[4])
-    print ("sss")
+        a[i][2] = str(r[3])
+        a[i][3] = str(r[4])
+
 
 
 print (a)

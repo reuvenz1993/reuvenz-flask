@@ -125,15 +125,22 @@ def ajax_test_func():
 
 @app.route('/userlist'  , methods =['GET','POST'])
 def userlist():
-    cursor.execute("SELECT DISTINCT `username` FROM `users`")
-    userlist_res = cursor.fetchall()
-    userlist = []
-    for user in userlist_res :
-        userlist.append(user[0])
-    print(userlist)
-    for i in range(len(userlist)) :
-        userlist[i][1] = "hhh"
-    return json.dumps ( userlist )
+    logged_in = session['username']
+    cursor.execute("SELECT DISTINCT username FROM `users`")
+    temp = cursor.fetchall()
+    n = len(temp)
+    a = [[0] * 4 for i in range(n)]
+    for i in range (n):
+        username = str(temp[i])
+        username = username [2:-3]
+        a[i][0] = username
+        cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC LIMIT 1".format(logged_in, username ,username , logged_in))
+        r = cursor.fetchone()
+        if (r):
+            a[i][1] = r[1]
+            a[i][2] = str(r[3])
+            a[i][3] = str(r[4])
+    return json.dumps({'userlist':a});
 
 if __name__=="__main__":
     app.run(debug=True)

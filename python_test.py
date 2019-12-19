@@ -17,6 +17,8 @@ import numpy as np
 myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
 cursor=myDB.cursor()
 
+logged_in = 'reuven'
+
 cursor.execute("SELECT DISTINCT username FROM `users`")
 temp = cursor.fetchall()
 
@@ -28,6 +30,10 @@ for i in range (n):
     username = str(temp[i])
     username = username [2:-3]
     a[i][0] = username
+    cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC LIMIT 1".format(logged_in, username ,username , logged_in))
+    r = cursor.fetchone()
+    print ("sss")
+
 
 print (a)
 print ("ss")

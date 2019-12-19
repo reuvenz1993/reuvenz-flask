@@ -26,12 +26,7 @@ SYMBOLS = '{}()[].,:;+-*/&|<>=~'
 num_rows = len(temp) -1
 print (temp[5])
 
-userlist = []
-for i in range( num_rows ):
-    #userlist[i] = []
-    userlist[i][0] = temp[i]
-    print (i)
+
 
 print (temp)
 print (num_rows)
-print (userlist)

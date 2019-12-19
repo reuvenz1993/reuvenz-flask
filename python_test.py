@@ -19,24 +19,17 @@ cursor=myDB.cursor()
 
 cursor.execute("SELECT DISTINCT username FROM `users`")
 temp = cursor.fetchall()
-temp = list(temp)
 
-SYMBOLS = '{}()[].,:;+-*/&|<>=~'
-
-num_rows = len(temp)
-print (temp[5])
-
-n = num_rows
-m = 3
-a = [[0] * m for i in range(n)]
+n = len(temp)
+a = [[0] * 3 for i in range(n)]
 print (a)
 
-for i in range (num_rows):
-    a[i][0] = str(temp[i])
-    a[i][0] = a[i][0][2:-3]
-    
+for i in range (n):
+    username = str(temp[i])
+    username = username [2:-3]
+    a[i][0] = username
 
-
-print (temp)
-print (num_rows)
+print (a)
+print ("ss")
+print ("ss")
 print (a)

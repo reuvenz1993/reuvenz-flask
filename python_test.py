@@ -32,6 +32,9 @@ for i in range (n):
     a[i][0] = username
     cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC LIMIT 1".format(logged_in, username ,username , logged_in))
     r = cursor.fetchone()
+    if (r):
+        a[i][1] = r[1]
+        a[i][2] = str(r[4])
     print ("sss")
 
 

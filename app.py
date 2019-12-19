@@ -144,7 +144,6 @@ def userlist():
 
 @app.route('/open_chat' , methods =['GET','POST'])
 def open_chat():
-    user1 = request.form['user1']
     user2 = request.form['user2']
     cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC".format(user1, user2 ,user2 , user1))
     message_array = cursor.fetchall()

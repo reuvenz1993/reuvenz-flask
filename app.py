@@ -120,7 +120,9 @@ def ajax_test():
 
 @app.route('/ajax_test_func' , methods =['GET','POST'])
 def ajax_test_func():
+    print ("AJAX TEXT")
     data = request.form['data']
+    print ("something")
     return json.dumps ({'data': data})
 
 @app.route('/userlist'  , methods =['GET','POST'])
@@ -144,7 +146,8 @@ def userlist():
 
 @app.route('/open_chat' , methods =['GET','POST'])
 def open_chat():
-    user2 = request.form['user2']
+    print ('open chat func start')
+    user2 = request.form['data']
     cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC".format(user1, user2 ,user2 , user1))
     message_array = cursor.fetchall()
     for message in message_array:

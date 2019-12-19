@@ -229,8 +229,9 @@ function update_user_show (userlist_Array)
 
     function load_messages( user1 , user2)
     {
+        data = user2
     $.post('/open_chat',
-            { user1 : user1 }, 
+            { data : data }, 
             function( data , status) {
             message_original = data;
             message_Array=$.parseJSON(data);

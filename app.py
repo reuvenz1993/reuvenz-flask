@@ -13,6 +13,7 @@ from flask_login import LoginManager
 from sqlalchemy.dialects.mysql import mysqlconnector
 import sqlalchemy
 import numpy as np
+from flask_socketio import SocketIO, emit
 
 
 engine = sqlalchemy.create_engine("mysql+mysqlconnector://usersdb-3131357d30:usersdb-3131357d30@mysql.stackcp.com:53856/usersdb-3131357d30")

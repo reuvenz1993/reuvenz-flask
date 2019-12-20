@@ -311,8 +311,57 @@ function update_user_show (userlist_Array)
 
     }
 
-    
+    $(function() {
+        var wtf    = $('#msg_history');
+        var height = wtf[0].scrollHeight;
+        wtf.scrollTop(height);
+      });
 };
+
+
+$("#write_new_msg").submit(function(e) 
+{
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var url = '/add_new_post.php';
+    var text = the_added_msg.value ;
+    var user1 =  user1 ;
+    var user2 = $('#rec').val();
+    var data = []
+    data['text'] = text
+    data['user1'] = user1
+    data['user2'] = user2
+
+
+    $.ajax({
+        type: "POST",
+        url: '/add_new_post',
+        data: { data : data }, 
+        success: function (response) {
+            console.log(response)
+            message_Array=$.parseJSON(response);
+            show_messages ( message_Array , user1 , user2)
+        }
+        }) ;
+
+
+    $.post(
+            url,
+        { text  : text ,
+        user1 : user1 ,
+        user2 : user2 } , 
+        function( data , status)
+        {
+            //console.log ("new post ajax scss");
+            //console.log (data);
+            load_messages(user1 ,user2 );
+            $("#the_added_msg").val("");
+
+        }
+     );
+});
 
 </script>
 

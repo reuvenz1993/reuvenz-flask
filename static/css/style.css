@@ -20,7 +20,8 @@
     min-height: 5cm;
     background-image: url ("http://reuvenzolo1-com.stackstaging.com/reuven-apps-dev/reuven-apps-dev-v1.1/facebook/WhatsappBackground-new.jpg") no-repeat center center fixed; 
     padding: 20px;
-    border-radius: 10px; }
+    border-radius: 10px;
+    background-color: aliceblue; }
 }
 
 .msgb {

@@ -139,7 +139,7 @@
     var user1 =  username ;
 
 $(document).ready(function () {
-
+    username = document.querySelector("#username").innerHTML
     //console.log("this is on main code console log :");
     $.post('/userlist',
     {user1: user1},
@@ -215,14 +215,14 @@ function update_user_show (userlist_Array)
     };
 
 
-    function start_chat_with_user(userid) 
+    function start_chat_with_user(userid)
     {
     //console.log(userid.target.innerHTM);
     user2 = userid.target.innerHTML;
     console.log(user2);
     var ff = "g";
     $('#rec').val(user2);
-    user1 = username ;
+    user1 = document.querySelector("#username").innerHTML
     load_messages( user1 ,user2 );
     };
 
@@ -251,11 +251,13 @@ function update_user_show (userlist_Array)
 {
     //console.log(messages_array);
     $("#msg_history").empty();
+    user1 = username;
 
     for (i = 0; i <  messages_array.length; i++) 
     {
         if (messages_array[i][1] == user1)
         {
+        console.log("out msg");
          var out_message_header = document.createElement('div');
          var out_message_text_box = document.createElement('div');
          var out_message_text_contant = document.createElement('div');

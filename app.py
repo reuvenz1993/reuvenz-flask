@@ -148,7 +148,7 @@ def userlist():
 def open_chat():
     user1 = session['username']
     user2 = request.form['data']
-    cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` DESC".format(user1, user2 ,user2 , user1))
+    cursor.execute("SELECT * FROM `massages` WHERE ( sender='{}' AND receiver='{}' ) OR ( sender='{}' AND  receiver='{}'  ) ORDER BY `time` ASC".format(user1, user2 ,user2 , user1))
     temp = list( cursor.fetchall() )
     for i in range ( len(temp) ):
         temp[i] = list(temp[i])

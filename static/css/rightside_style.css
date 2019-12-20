@@ -69,6 +69,7 @@ incoming_msg_img {
 }
 
   .outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+  
   .ssssent_msg {
     float: right;
     width: 46%;

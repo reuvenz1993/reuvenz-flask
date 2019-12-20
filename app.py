@@ -155,6 +155,15 @@ def open_chat():
         temp[i][4] = str(temp[i][4])
     return json.dumps ( temp )
 
+@app.route('/add_new_post' , methods =['GET','POST'])
+def add_new_post():
+    user1 = session['username']
+    print (user1)
+    print (request.form['data'])
+    user2 = request.form['data']
+    print (user2)
+    return json.dumps ( "add new post done" )
+
 if __name__=="__main__":
     app.run(debug=True)
 

@@ -159,9 +159,10 @@ def open_chat():
 def add_new_post():
     user1 = session['username']
     print (user1)
-    print (request.form['data'])
-    user2 = request.form['data']
-    print (user2)
+    user1 = request.form['user1']
+    user2 = request.form['user2']
+    text = request.form['text']
+    cursor.execute("INSERT INTO `massages` ( `sender`, `receiver`, `massage`) VALUES ( '{}' , '{}' , '{}' )".format( user1 , user2 , text ))
     return json.dumps ( "add new post done" )
 
 if __name__=="__main__":

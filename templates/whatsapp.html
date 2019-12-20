@@ -337,10 +337,11 @@ $("#write_new_msg").submit(function(e)
     $.ajax({
         type: "POST",
         url: '/add_new_post',
-        data: { 'data' : data }, 
+        data: { user1 : user1 , user2 : user2 , text : text }, 
         success: function (response) {
             console.log(response)
             $("#the_added_msg").val("");
+            load_messages(user1 ,user2 );
         }
         }) ;
 });

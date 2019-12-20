@@ -13,7 +13,7 @@ from flask_login import LoginManager
 from sqlalchemy.dialects.mysql import mysqlconnector
 import sqlalchemy
 import numpy as np
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit , send
 
 
 engine = sqlalchemy.create_engine("mysql+mysqlconnector://usersdb-3131357d30:usersdb-3131357d30@mysql.stackcp.com:53856/usersdb-3131357d30")
@@ -28,6 +28,7 @@ cursor=myDB.cursor()
 app=Flask(__name__)
 app.config['TESTING'] = True
 app.secret_key = "fghfghfdgsdfhfhfghdfgrebdfbver"
+socketio = SocketIO(app)
 
 login_manager = LoginManager()
 
@@ -168,4 +169,5 @@ def add_new_post():
 
 if __name__=="__main__":
     app.run(debug=True)
+    socketio.run(app)
 

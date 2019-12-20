@@ -230,10 +230,11 @@ function update_user_show (userlist_Array)
     function load_messages( user1 , user2)
     {
         data = user2
+        console.log("log message activted")
         $.ajax({
             type: "POST",
             url: '/open_chat',
-            data: { data : data }, 
+            data: { 'data' : data }, 
             success: function (response) {
                 console.log(response)
             }

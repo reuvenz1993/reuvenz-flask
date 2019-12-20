@@ -237,6 +237,8 @@ function update_user_show (userlist_Array)
             data: { 'data' : data }, 
             success: function (response) {
                 console.log(response)
+                message_Array=$.parseJSON(response);
+                show_messages ( message_Array , user1 , user2)
             }
             }) ;
 
@@ -244,6 +246,71 @@ function update_user_show (userlist_Array)
 
     }
 
+
+    function show_messages(messages_array , user1 ,user2 )
+{
+    //console.log(messages_array);
+    $("#msg_history").empty();
+
+    for (i = 0; i <  messages_array.length; i++) 
+    {
+        if (messages_array[i][1] == user1)
+        {
+         var out_message_header = document.createElement('div');
+         var out_message_text_box = document.createElement('div');
+         var out_message_text_contant = document.createElement('div');
+         var out_message_text_date = document.createElement('div');
+        
+         out_message_header.className = "outgoing_msg";
+         out_message_text_box.className = "sent_msg";
+         out_message_text_contant.className = "out_text_contant";
+         out_message_text_date.className = "out_text_date";
+
+         out_message_text_contant.innerHTML = messages_array [i][3];
+         out_message_text_date.innerHTML = messages_array [i][4].substring(0,16);
+
+         out_message_text_box.appendChild(out_message_text_contant);
+         out_message_text_box.appendChild(out_message_text_date);
+
+         out_message_header.appendChild(out_message_text_box);
+
+         $("#msg_history").append(out_message_header);
+
+        } else if (messages_array[i][1] == user2 )
+        {
+
+         var in_message_inline_block = document.createElement('div');
+         var in_message_header = document.createElement('div');
+         var in_message_text_box = document.createElement('div');
+         var in_message_text_contant = document.createElement('div');
+         var in_message_text_date = document.createElement('div');
+         
+         in_message_inline_block.className = "in_msg_block";
+         in_message_header.className = "in_msg";
+         in_message_text_box.className = "in_msg_box";
+         in_message_text_contant.className = "in_text_contant";
+         in_message_text_date.className = "in_text_date";
+
+         in_message_text_contant.innerHTML = messages_array [i][3] ;
+         in_message_text_date.innerHTML = messages_array [i][4].substring(0,16) ;
+
+        
+         in_message_text_box.appendChild(in_message_text_contant);
+         in_message_text_box.appendChild(in_message_text_date);
+
+         in_message_header.appendChild(in_message_text_box);
+         in_message_inline_block.appendChild(in_message_header);
+
+         $("#msg_history").append(in_message_inline_block);
+
+
+        }
+
+
+    }
+
+    
+};
 
 </script>
 

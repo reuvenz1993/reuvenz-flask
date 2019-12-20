@@ -230,19 +230,19 @@ function update_user_show (userlist_Array)
     function load_messages( user1 , user2)
     {
         data = user2
-    $.post('/open_chat',
-            { data : data }, 
-            function( data , status) {
-            message_original = data;
-            message_Array=$.parseJSON(data);
-            console.log(message_Array);
-            show_messages(message_Array , user1 , user2 );
+        $.ajax({
+            type: "POST",
+            url: '/open_chat',
+            data: { data : data }, 
+            success: function (response) {
+                console.log(response)
+            }
+            }) ;
 
-            
 
-            });
 
-    };
+    }
+
 
 </script>
 

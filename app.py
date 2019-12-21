@@ -163,6 +163,10 @@ def add_new_post():
     cursor.execute("INSERT INTO `massages` ( `sender`, `receiver`, `massage`) VALUES ( '{}' , '{}' , '{}' )".format( user1 , user2 , text ))
     return json.dumps ( "add new post done" )
 
+@socketio.on( 'my event' )
+def handle_my_custom_event( json ):
+  print( 'recived my event: ' + str( json ) )
+
 if __name__ == '__main__':
   socketio.run( app, debug = True )
 

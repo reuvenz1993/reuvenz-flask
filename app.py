@@ -165,8 +165,7 @@ def add_new_post():
 
 @socketio.on( 'connection event' )
 def handle_my_custom_event( json ):
-    temp_var = json
-  print( 'received connection event: ' + str( json['data'] ) )
+    print( 'received connection event: ' + str( json['data'] ) )
 
 if __name__ == '__main__':
   socketio.run( app, debug = True )

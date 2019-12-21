@@ -75,7 +75,7 @@
         // broadcast a message
         socket.on( 'connect', function() {
           console.log("connected to websocket")
-          socket.emit( 'my event', {
+          socket.emit( 'connection event', {
             data: 'User Connected'
           }  ) } )
 </script>

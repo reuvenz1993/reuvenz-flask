@@ -26,12 +26,8 @@ cursor=myDB.cursor()
 
 
 app=Flask(__name__)
-app.config['TESTING'] = True
-app.secret_key = "fghfghfdgsdfhfhfghdfgrebdfbver"
+app.config[ 'SECRET_KEY' ] = 'jsbcfsbfjefebw237u3gdbdc'
 socketio = SocketIO(app)
-
-login_manager = LoginManager()
-
 
 
 @app.route('/' , methods =['GET','POST'])
@@ -167,7 +163,9 @@ def add_new_post():
     cursor.execute("INSERT INTO `massages` ( `sender`, `receiver`, `massage`) VALUES ( '{}' , '{}' , '{}' )".format( user1 , user2 , text ))
     return json.dumps ( "add new post done" )
 
-if __name__=="__main__":
-    app.run(debug=True)
-    socketio.run(app)
+
+
+
+if __name__ == '__main__':
+  socketio.run( app, debug = True )
 

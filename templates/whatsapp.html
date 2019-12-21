@@ -147,7 +147,7 @@ $(document).ready(function () {
     {
     console.log("ajax scss :");
     userlist_Array=$.parseJSON(data);
-    console.log(data) ;
+    //console.log(data) ;
     update_user_show(userlist_Array["userlist"]);
     }  );
 
@@ -219,7 +219,7 @@ function update_user_show (userlist_Array)
     {
     //console.log(userid.target.innerHTM);
     user2 = userid.target.innerHTML;
-    console.log(user2);
+    //console.log(user2);
     var ff = "g";
     $('#rec').val(user2);
     user1 = document.querySelector("#username").innerHTML
@@ -257,7 +257,6 @@ function update_user_show (userlist_Array)
     {
         if (messages_array[i][1] == user1)
         {
-        console.log("out msg");
          var out_message_header = document.createElement('div');
          var out_message_text_box = document.createElement('div');
          var out_message_text_contant = document.createElement('div');

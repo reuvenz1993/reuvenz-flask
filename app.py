@@ -19,7 +19,7 @@ from flask_socketio import SocketIO, emit , send
 engine = sqlalchemy.create_engine("mysql+mysqlconnector://usersdb-3131357d30:usersdb-3131357d30@mysql.stackcp.com:53856/usersdb-3131357d30")
 
 
-myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
+myDB = MySQLdb.connect(host="remotemysql.com",port=3306,user="Qkoct4SYze",passwd="mnjrFxtF6j",db="Qkoct4SYze" , charset='utf8')
 cursor=myDB.cursor()
 
 #cursor.execute("SELECT * FROM `users`")
@@ -172,4 +172,3 @@ def handle_my_custom_event( json ):
 
 if __name__ == '__main__':
   socketio.run( app, debug = True )
-

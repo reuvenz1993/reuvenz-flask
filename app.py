@@ -16,6 +16,7 @@ import numpy as np
 from flask_socketio import SocketIO, emit , send
 
 
+
 myDB = MySQLdb.connect(host="remotemysql.com",port=3306,user="6gwqizv8Zw",passwd="eNLByhTS1P",db="6gwqizv8Zw" , charset='utf8')
 cursor=myDB.cursor()
 

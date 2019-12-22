@@ -1,18 +1,12 @@
 from flask import Flask, render_template , request , session , redirect , url_for , escape , make_response
 from flaskext.mysql import MySQL
 import MySQLdb
-from flask_mysqldb import MySQL
-import pymysql
 import mysql.connector
-import pymysql.cursors
 import MySQLdb
 from MySQLdb import _mysql
 import json
 from twisted.web.server import Session
-from flask_login import LoginManager
 from sqlalchemy.dialects.mysql import mysqlconnector
-import sqlalchemy
-import numpy as np
 from flask_socketio import SocketIO, emit , send
 
 

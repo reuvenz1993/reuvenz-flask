@@ -16,9 +16,6 @@ import numpy as np
 from flask_socketio import SocketIO, emit , send
 
 
-engine = sqlalchemy.create_engine("mysql+mysqlconnector://usersdb-3131357d30:usersdb-3131357d30@mysql.stackcp.com:53856/usersdb-3131357d30")
-
-
 myDB = MySQLdb.connect(host="remotemysql.com",port=3306,user="Qkoct4SYze",passwd="mnjrFxtF6j",db="Qkoct4SYze" , charset='utf8')
 cursor=myDB.cursor()
 

@@ -1,12 +1,10 @@
 from flask import Flask, render_template , request , session , redirect , url_for , escape , make_response
 from flaskext.mysql import MySQL
-import MySQLdb
 import mysql.connector
 import MySQLdb
 from MySQLdb import _mysql
 import json
 from twisted.web.server import Session
-from sqlalchemy.dialects.mysql import mysqlconnector
 from flask_socketio import SocketIO, emit , send
 
 

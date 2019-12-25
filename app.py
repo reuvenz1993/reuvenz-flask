@@ -8,7 +8,7 @@ from twisted.web.server import Session
 from flask_socketio import SocketIO, emit , send
 
 
-myDB = MySQLdb.connect(host="remotemysql.com",port=3306,user="6gwqizv8Zw",passwd="eNLByhTS1P",db="6gwqizv8Zw" , charset='utf8')
+myDB = MySQLdb.connect(host="mysql.stackcp.com",port=53856,user="usersdb-3131357d30",passwd="usersdb-3131357d30",db="usersdb-3131357d30" , charset='utf8')
 cursor=myDB.cursor()
 
 #cursor.execute("SELECT * FROM `users`")

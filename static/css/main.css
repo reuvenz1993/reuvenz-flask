@@ -37,6 +37,7 @@ header h1.logo:hover {
 .container {
   width: 1200px;
   margin: 0 auto;
+  background-color: #DFB887;
 }
 
 div.home {

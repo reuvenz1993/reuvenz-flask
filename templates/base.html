@@ -70,15 +70,6 @@
 {%endblock%}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
-<script>
-  var socket = io.connect( 'http://' + document.domain + ':' + location.port )
-        // broadcast a message
-        socket.on( 'connect', function() {
-          console.log("connected to websocket")
-          socket.emit( 'connection event', {
-            data: 'User Connected'
-          }  ) } )
-</script>
 
 
 <footer class="page-footer font-small blue">
